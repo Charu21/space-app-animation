@@ -1,0 +1,27 @@
+<div class="container">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th> Flight Number </th>
+                <th> Mission Name </th>
+                <th> Launch year </th>
+                <th> Rocket Name </th>
+                <th> Image Link (with animation)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let flight of flights">
+                <td> {{ flight.flight_number }} </td>
+                <td> {{ flight.mission_name }} </td>
+                <td> {{ flight.launch_year }} </td>
+                <td> {{ flight.rocket_name }} </td>
+                <td> <button type="button" class="btn btn-danger"
+                        (click)="toggleShowImage(flight)">Toggle {{ flight.mission_name }} </button>
+                    <div [@slideInOut]="flight.flight_state"> <img class="frameworkLogo" [src]="flight.image_link" [alt]="flight.mission_name" width="250px"
+                            height="250px">
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
